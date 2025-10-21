@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luminance and Rewards Update - Nexus</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Nexus Luminance and Rewards Update — Grey/White/Neon Red theme. Centered layout. Organized updates for quests, NPCs, and dungeons.">
+  <meta property="og:title" content="Luminance and Rewards Update - Nexus">
+  <meta property="og:description" content="Detailed luminance updates across NPCs, quests, and PvP dungeons on Nexus.">
+  <meta property="og:type" content="website">
+  <style>
+    :root{
+      --bg:#161616;
+      --ink:#f3f3f3;
+      --muted:#d0d0d0;
+      --panel:#202020;
+      --red1:#ff5757;
+      --red2:#e10000;
+      --red3:#9b0000;
+      --border:rgba(255,87,87,.32);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 50% -10%, rgba(255,0,0,.08), transparent 60%), var(--bg);
+      color:var(--ink);
+      display:flex; flex-direction:column; min-height:100vh;
+    }
+    header{
+      position:sticky; top:0; z-index:20;
+      background:#121212; border-bottom:1px solid var(--border);
+    }
+    .container{max-width:1100px; margin:0 auto; padding:0 16px;}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:56px;}
+    .brand{
+      font-family: Orbitron, sans-serif; font-weight:700; letter-spacing:.5px;
+      color:#fff;
+      text-shadow:0 0 10px var(--red1), 0 0 22px var(--red2);
+    }
+    main{flex:1; display:flex; flex-direction:column; align-items:center; padding: 0 12px;}
+    .hero{padding:56px 0 18px; text-align:center;}
+    .title{
+      font-family: Orbitron, sans-serif; font-weight:800; letter-spacing:1px;
+      font-size: clamp(2.2rem, 4vw + 1rem, 4.2rem);
+      margin:0;
+      color:#fff;
+      text-shadow: 0 0 10px var(--red1), 0 0 24px var(--red2), 0 0 48px var(--red3);
+    }
+    .sub{ margin:.65rem auto 0; color:var(--muted); text-shadow:0 0 8px rgba(255,87,87,.45); max-width:800px; }
+    .panel{
+      width:100%;
+      max-width:980px;
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 40%), var(--panel);
+      border:1px solid var(--border);
+      border-radius:16px;
+      margin:16px auto;
+      padding:18px 18px 20px;
+      box-shadow:0 0 20px rgba(225,0,0,.22);
+      text-align:center;
+    }
+    .panel h2{
+      margin:2px 0 14px;
+      font-family: Orbitron, sans-serif; font-weight:700;
+      font-size: clamp(1.4rem, 1vw + 1rem, 1.9rem);
+      color:#fff;
+      text-shadow:0 0 10px var(--red1), 0 0 22px var(--red2), 0 0 40px var(--red3);
+    }
+    .points{
+      list-style:none; padding:0; margin:0;
+      display:flex; flex-direction:column; align-items:center; gap:10px;
+    }
+    .points li{
+      max-width:860px; width:100%;
+      padding:10px 14px;
+      border-radius:12px;
+      color:#f8f8f8;
+      text-align:left;
+      text-shadow:0 0 6px rgba(255,87,87,.55);
+      background:transparent;
+      border:1px solid transparent;
+    }
+    .points li:hover{
+      border-color: var(--border);
+      box-shadow: 0 0 12px rgba(255,87,87,.28);
+    }
+    footer{background:#121212; border-top:1px solid var(--border);}
+    .foot{padding:10px 0; text-align:center; color:#bfbfbf}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner">
+      <div class="brand">Asheron's Call Nexus</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container" style="text-align:center;">
+        <h1 class="title">Luminance and Rewards Update</h1>
+        <p class="sub">All values shown are BEFORE server-based luminance modifiers.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>White View NPCs</h2>
+      <ul class="points">
+        <li>Shade of Parieth — Old: None → New: 15,000 Lum</li>
+        <li>Apep-tek the Tolerant — Old: None → New: 10,000 Lum</li>
+        <li>Lo Shoen — Old: None → New: 20,000 Lum (per quest)</li>
+        <li>Sharia Blackmist — Old: None → New: 15,000 Lum</li>
+        <li>Sir Yanov — Old: None → New: 10,000 Lum (each)</li>
+        <li>Dame Trielle — Old: None → New: 10,000 Lum</li>
+        <li>T'ing Douzen — Old: None → New: 10,000 Lum</li>
+        <li>Sir Durnstad — Old: None → New: 15,000 Lum</li>
+        <li>Emissary of Asheron — Old: 35,000 Lum → New: 70,000 Lum</li>
+        <li>Gregoria, Gurog Destroyer — Old: 2,500 Lum ea → New: 7,500 Lum ea</li>
+        <li>Hunter — Old: 2,000–2,500 Lum ea → New: 10,000 Lum ea</li>
+        <li>Archmage Ichihiri — Old: 5,000 Lum → New: 15,000 Lum</li>
+        <li>Sir Donovan — Old: 5,000/40,000 Lum → New: 10,000/80,000 Lum</li>
+        <li>Sir Learth — Old: None → New: 10,000 Lum</li>
+        <li>Lady Daenerah — Old: None → New: 30,000 Lum</li>
+        <li>Dame Tularin — Old: 3,000 Lum → New: 15,000 Lum</li>
+        <li>Sir Ibreh bin Kassim — Old: 4,000 Lum → New: 15,000 Lum</li>
+        <li>Sir Adarl — Old: 4,000 Lum → New: 15,000 Lum</li>
+        <li>Sir Hassim bin Tamarek — Old: 3,000 Lum → New: 15,000 Lum</li>
+        <li>Bemeth the Gatherer — Old: 3,000 Lum ea → New: 5,000 Lum ea</li>
+        <li>T'ing Setsuko — Old: 3,000 Lum → New: 8,000 Lum ea</li>
+        <li>Hammah al Rundik — Old: 2,000 Lum → New: 6,000 Lum</li>
+        <li>Taylarn bint Tulani — Old: 2,000 Lum ea → New: 8,000 Lum ea</li>
+        <li>Halvor — Old: 500 Lum → New: 10,000 Lum</li>
+        <li>Royal Guard / Umbral Guard / Devourer Marguls / Shadows / Void Lords — Old: None → New: 15,000 Lum</li>
+        <li>Virindi Delegate — Old: 3k x3 (6k) → New: 9k x3 (12k)</li>
+        <li>Vision of Horror — Old: 27,500 Lum → New: 60,000 Lum</li>
+        <li>Ilte Krongal — Old: 10,000 Lum → New: 20,000 Lum</li>
+        <li>Geilla — Old: 12,000 Lum → New: 30,000 Lum</li>
+        <li>Rinne Gorber — Old: 20,000 Lum → New: 60,000 Lum</li>
+        <li>Tillahan — Old: 2,500 Lum → New: 10,000 Lum</li>
+        <li>Hernd — Old: 8,000 Lum → New: 20,000 Lum</li>
+        <li>Marcus, Sylvanus, Ranulf, Wido, Rhys — Old: 7,000 Lum → New: 20,000 Lum each</li>
+        <li>The Bringer of Light — Old: 18k/3k x3 → New: 36k/6k x3 Lum</li>
+        <li>Raksaa — Old: 18,000 Lum → New: 60,000 Lum</li>
+        <li>Renata — Old: 3,000 Lum → New: 10,000 Lum</li>
+        <li>Aethelswith — Old: 3,000 Lum → New: 10,000 Lum</li>
+        <li>Yoite — Old: 5,000 Lum → New: 15,000 Lum</li>
+        <li>Gadi — Old: 3,500 Lum → New: 10,000 Lum</li>
+        <li>George — Old: 5,000 Lum → New: 20,000 Lum</li>
+        <li>Kumiko — Old: 5,000 Lum → New: 20,000 Lum</li>
+        <li>Leilah — Old: 5,000 Lum → New: 15,000 Lum</li>
+        <li>Morgethais — Old: 90,000 Lum → New: 180,000 Lum</li>
+        <li>Aun Ol'tra — Old: 15,000 Lum → New: 30,000 Lum</li>
+        <li>Royal Guard (Pillars) — Old: None → New: 15,000 Lum</li>
+        <li>Lohrn — Old: 3,000 Lum → New: 20,000 Lum</li>
+        <li>Boone — Old: 3,000 Lum → New: 10,000 Lum</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>PvP Dungeons & Areas</h2>
+      <ul class="points">
+        <li><strong>Sanctum of Chaos</strong><br>
+          - Threxil Kill Task (Aun Pallaton) → Now 200,000 Lum<br>
+          - Requires 500 Follower of Threxil kills<br>
+          - Followers of Threxil → Increased to 300 Lum per kill
+        </li>
+        <li><strong>Hopeslayer’s Reach</strong><br>
+          - Geraine, Warden of the Reach Quests → Now 50,000 Lum each + 15 Nexus Writs each<br>
+          - Gaerlan the Mad Archmage Quest → Now 120,000 Lum + 25 Nexus Writs<br>
+          - Igris the Nexus Knight Quest → Now 100,000 Lum + 15 Nexus Writs<br>
+          - Fuin Dark Halls → Removed for now<br>
+          - Oathblade Vanguards → Now 600 Lum each
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer><div class="container foot">Asheron’s Call Nexus — Luminance and Rewards Update</div></footer>
+</body>
+</html>

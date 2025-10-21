@@ -1,0 +1,311 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Quests & Rewards</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0b0c12;--panel:#141827;--ink:#e5e7eb;--ink2:#b7b6d2;--accent:#a78bfa}
+  body{font-family:'Inter',system-ui; background:radial-gradient(1000px 700px at 30% -10%, #1b1440 0%, #0b0c12 60%); color:var(--ink)}
+  h1{font-family:'Orbitron'; letter-spacing:.02em}
+  .card{background:rgba(20,24,39,.92); border:1px solid rgba(167,139,250,.16); border-radius:16px; padding:16px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:14px}
+  .label{font-size:.72rem; text-transform:uppercase; letter-spacing:.12em; color:#b7b6d2}
+  .value{color:#e9d5ff; font-weight:600}
+  .search{background:#0f1220; border:1px solid rgba(167,139,250,.25)}
+</style>
+
+</head>
+<body>
+  <header class="sticky top-0 z-40 backdrop-blur bg-black/40 border-b border-purple-500/20">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl sm:text-2xl font-bold tracking-[.15em] text-purple-300">ASHERON'S CALL • NEXUS</a>
+      <span class="text-sm text-purple-200">Player Wiki</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <h1 class="text-4xl md:text-5xl text-purple-300 font-extrabold mb-6">Quests & Rewards</h1>
+    <div class="mb-5"><input id="q" class="search rounded-lg px-3 py-2 w-full md:w-1/2" placeholder="Search by NPC or Quest…"/></div>
+    <section id="cards" class="grid">
+      
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Baelzharons Acolyte</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Baelzharons Acolyte: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">35% of your Level — Max 5,000,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">5 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Stanley The Stomper</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Stanley The Stomper: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">180+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">50% of your Level — Max 5,000,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">10 Uber-Stakes Gambling Gems, 20 Nexus Tokens, Nexus Reward Chest</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Geraine Warden of the Reach</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Geraine Warden of the Reach: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">180+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">200,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">2 Uber-Stakes Gambling Gems, 15 Nexus Tokens, 2 Trevis Debug Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Oathliege Hunter</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Oathliege Hunter: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">85% of your Level — Max 5,000,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">5 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Vermino</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Vermino: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">65% of your Level — Max 5,000,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value"></div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Fatos The Lugian Slayer</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Fatos The Lugian Slayer: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">60% of your Level — Max 950,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">Nexus Token</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Hells the Hooded One Hunter</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Hells the Hooded One Hunter: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">65% of your Level — Max 5,000,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">5 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">George, The Thornbound Savage</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">George, The Thornbound Savage: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">120,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">15 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Igris The Nexus Knight</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Igris The Nexus Knight: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">65,000, 80,000,000, 400,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">6 Uber-Stakes Gambling Gems, 20 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Trevis the Ruiner</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Trevis the Ruiner: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">75% of your Level — Max 5,000,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">2 Uber-Stakes Gambling Gems, 5 Nexus Tokens, 2 Trevis Debug Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Lizard Hunter</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Lizard Hunter: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">1+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">20,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">5 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Gaerlan The Mad Archmage</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Gaerlan The Mad Archmage: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">180+</div></div>
+          <div><div class="label">Lum</div><div class="value">40,000</div></div>
+          <div class="col-span-2"><div class="label">XP</div>100% of your Level — Max 5,000,000,000<div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">20 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Captain Stupid</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Captain Stupid: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">55,000</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">50% of your Level — Max 5,000,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">43520, 3 Uber-Stakes Gambling Gems, 20 Nexus Tokens, Nexus Reward Chest</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Chester Thornberry</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Chester Thornberry: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">1+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">40,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">10 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Terry Thornberry</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Terry Thornberry: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">1+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">40,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">10 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Aun Pallaton</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Aun Pallaton: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">180+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">2,000,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">10 Trade Note (250,000)s, 20 Uber-Stakes Gambling Gems, 40 Nexus Tokens, 2 Nexus Reward Chests</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Born The Tail Hunter</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Born The Tail Hunter: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">60% of your Level — Max 950,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">8 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Eggburt</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Eggburt: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">15,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">Uber-Stakes Gambling Gem</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Snorebert</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Snorebert: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">45% of your Level — Max 950,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">5 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Wiccan Witch</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Wiccan Witch: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">50,000</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">3 Uber-Stakes Gambling Gems, 10 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Xavier Dabsworth</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Xavier Dabsworth: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">125+</div></div>
+          <div><div class="label">Lum</div><div class="value">50,000</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">45% of your Level — Max 5,000,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">3 Uber-Stakes Gambling Gems, 10 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Hallas The Longwinded</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Hallas The Longwinded: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">60,000</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">20 Nexus Tokens, 2 Nexus Reward Chests</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Sky The Inspirational</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Sky The Inspirational: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">100+</div></div>
+          <div><div class="label">Lum</div><div class="value">45,000</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">3 Uber-Stakes Gambling Gems, 5 Nexus Tokens</div></div>
+        </div>
+      </article>
+    
+      <article class="card">
+        <h3 class="text-lg font-semibold text-purple-300 mb-1">Wraith Hunter</h3>
+        <div class="mb-2 text-sm text-[var(--ink2)]">Wraith Hunter: Quest</div>
+        <div class="grid grid-cols-2 gap-2 text-sm">
+          <div><div class="label">Level</div><div class="value">150+</div></div>
+          <div><div class="label">Lum</div><div class="value">—</div></div>
+          <div class="col-span-2"><div class="label">XP</div><div class="value">100% of your Level — Max 5,000,000,000</div></div>
+          <div class="col-span-2"><div class="label">Items</div><div class="value">10 Uber-Stakes Gambling Gems, 20 Nexus Tokens, Nexus Reward Chest</div></div>
+        </div>
+      </article>
+    
+    </section>
+  </main>
+
+  <script>
+    const q=document.getElementById('q');
+    const cards=[...document.querySelectorAll('#cards article')];
+    q.addEventListener('input', e=>{
+      const v=e.target.value.toLowerCase();
+      cards.forEach(c=>{ c.style.display = c.innerText.toLowerCase().includes(v) ? '' : 'none'; });
+    });
+  </script>
+</body>
+</html>

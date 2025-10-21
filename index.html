@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Asheron's Call Nexus</title>
+<link rel=\"icon\" href=\"/favicon.ico\" sizes=\"32x32\">
+<link rel=\"shortcut icon\" href=\"/favicon.ico\"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#e7e5ff; --ink2:#b5b3d6; --accent:#c084fc; --accent2:#7c3aed;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui; margin:0; color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(124,58,237,.30) 0%, transparent 60%),
+    radial-gradient(800px 500px at 100% 0%, rgba(139,92,246,.25) 0%, transparent 60%),
+    #0a0b12;
+}
+h1,h2,h3{font-family:'Orbitron',ui-sans-serif; letter-spacing:.02em}
+.neon{color:#e9d5ff;
+  text-shadow:
+    0 0 10px rgba(196,181,253,.85),
+    0 0 22px rgba(167,139,250,.75),
+    0 0 38px rgba(124,58,237,.70),
+    0 0 60px rgba(124,58,237,.55),
+    0 0 85px rgba(124,58,237,.45);}
+.container{max-width:1200px; margin-left:auto; margin-right:auto; padding:0 1.2rem}
+.header{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
+  background:linear-gradient(180deg, rgba(124,58,237,.12), rgba(12,12,18,.65));
+  border-bottom:1px solid rgba(167,139,250,.25); }
+.header .bar{display:flex; align-items:center; justify-content:space-between; padding:.6rem 0; gap:1rem}
+.header nav a{color:#ddd6fe; text-decoration:none; margin:0 .35rem}
+.header nav a:hover{color:#fff}
+.hero{padding:2.2rem 0 1.4rem 0; text-align:center}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4rem)}
+.hero .sub{color:var(--ink2); max-width:860px; margin:.6rem auto 0 auto}
+.glass{background:linear-gradient(180deg, rgba(124,58,237,.10), rgba(8,8,12,.8)); 
+  border:1px solid rgba(167,139,250,.35); border-radius:16px; box-shadow:0 16px 40px rgba(0,0,0,.45)}
+.section{scroll-margin-top:6rem; margin:1.2rem 0}
+.panel{background:rgba(12,12,18,.75); border:1px solid rgba(167,139,250,.25); border-radius:16px; padding:1.1rem}
+.panel h2{font-size:1.7rem; margin:.25rem 0 .7rem 0}
+.panel h3{font-size:1.15rem; margin:.6rem 0 .4rem 0}
+.sep{height:1px; background:rgba(167,139,250,.18); margin:1rem 0}
+.pill{display:inline-block;border:1px solid rgba(167,139,250,.35);border-radius:999px;padding:2px 8px;font-size:.72rem;color:#e9d5ff;background:rgba(124,58,237,.15)}
+.btn{display:inline-block; padding:.45rem .7rem; border:1px solid rgba(167,139,250,.35); border-radius:9px; text-decoration:none; color:#e9d5ff; background:rgba(124,58,237,.08)}
+.btn:hover{background:rgba(124,58,237,.18)}
+ul{line-height:1.6; margin:.4rem 0 .6rem 1.2rem}
+li{margin:.2rem 0}
+#quest-cards{display:grid; grid-template-columns:1fr 1fr; gap:1rem}
+@media (max-width:900px){ #quest-cards{grid-template-columns:1fr} }
+.quest-card{background:#0b0d14; border:1px solid rgba(167,139,250,.22); border-radius:12px; padding:.85rem}
+.card-h{display:flex; align-items:center; gap:.5rem; margin-bottom:.45rem}
+.card-h h3{margin:0; font-size:1.05rem}
+.card-b p{margin:0; line-height:1.55}
+.table-wrap{background:rgba(6,6,10,.55); border:1px solid rgba(167,139,250,.18); border-radius:12px; padding: .55rem .7rem}
+table{border-collapse:collapse; width:100%} th,td{padding:.45rem .5rem; text-align:left; border-top:1px solid rgba(167,139,250,.14)}
+th{font-weight:600; color:#ddd6fe}
+.mono{font-variant-numeric:tabular-nums}
+input.search{background:#0f1220; border:1px solid rgba(167,139,250,.25); border-radius:10px; color:#e5e7eb; padding:.5rem .65rem}
+footer{color:var(--ink2); padding:1.2rem 0 2rem 0}
+
+/* Glow for town headings */
+.town-title{color:#e9d5ff;
+  text-shadow:
+    0 0 10px rgba(167,139,250,.85),
+    0 0 22px rgba(124,58,237,.70),
+    0 0 38px rgba(124,58,237,.60);}
+
+/* Strong neon glow for key headers */
+.glow-title{
+  color:#fff;
+  text-shadow:
+    0 0 10px #c08cff,
+    0 0 22px #a455f7,
+    0 0 38px #7c3aed,
+    0 0 60px #5b21b6,
+    0 0 90px #4b0082;
+}
+.creator-name{
+  color:#fff;
+  text-shadow:
+    0 0 8px #c08cff,
+    0 0 18px #7c3aed,
+    0 0 28px #5b21b6;
+}
+
+<meta name="description" content="Asheron's Call Nexus — custom PvP/PvE server with towns, quests, arena, casino, unique systems, and progression. Connect at 135.148.136.179:9000.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Asheron's Call Nexus">
+<meta property="og:description" content="Asheron's Call Nexus — custom PvP/PvE server with towns, quests, arena, casino, unique systems, and progression. Connect at 135.148.136.179:9000.">
+<meta property="og:image" content="https://img.youtube.com/vi/FzXIHOCte_k/hqdefault.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Asheron's Call Nexus">
+<meta name="twitter:description" content="Asheron's Call Nexus — custom PvP/PvE server with towns, quests, arena, casino, unique systems, and progression. Connect at 135.148.136.179:9000.">
+<meta name="twitter:image" content="https://img.youtube.com/vi/FzXIHOCte_k/hqdefault.jpg">
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container bar">
+    <div style="display:flex; align-items:center; gap:.5rem">
+      <strong class="neon" style="letter-spacing:.12em">ASHERON'S CALL • NEXUS</strong>
+    </div>
+    <nav>
+      <a href="#systems">Systems</a>
+      <a href="#towns">Towns</a>
+      <a href="#monsters">Monsters</a>
+      <a href="#quests">Quests</a>
+      <a href="#items">Items</a>
+      <a href="#casino">Casino</a>
+      <a href="#creators">Creators</a>
+      <a href="#rules">Rules</a>
+    </nav>
+    <div style="display:flex; gap:.5rem">
+      <a href="https://discord.gg/wbSP3Czwwp" class="btn">Discord</a>
+      <a href="https://asheron.fandom.com/wiki/Home" class="btn">Official Wiki</a>
+          <a href="https://github.com/dtmajors/Nexus-Server" class="btn">Git</a>
+    </div>
+  </div>
+</header>
+
+
+<section class="hero neon-hero">
+  <div class="container">
+    <h1 class="hero-title">Enter the Nexus</h1>
+    <p class="sub">Server IP: 135.148.136.179  Port: 9000.</p>
+
+    <p>
+      <a class="glow-link" href="http://www.thwargle.com/" target="_blank">
+        Download Thwarg Launcher
+      </a>
+    </p>
+    <p>
+      <a class="glow-link" href="https://emulator.ac/how-to-play/" target="_blank">
+        Guide: How to Connect to AC Server
+      </a>
+    </p>
+
+    <div class="glass hero-video">
+      <div style="display:flex; justify-content:center;">
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/FzXIHOCte_k?rel=0"
+          title="Nexus Trailer" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Hero Section */
+.neon-hero {
+  padding: 2rem 1rem;
+  text-align: center;
+  background: rgba(10, 10, 20, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff; /* White core text */
+  text-shadow:
+    0 0 8px #b366ff,
+    0 0 16px #9933ff,
+    0 0 28px #8000ff,
+    0 0 42px #4b0082;
+  margin-bottom: 1rem;
+}
+
+.sub {
+  color: #ccccff;
+  text-shadow: 0 0 4px #7B61FF, 0 0 8px #4B3CC4;
+}
+
+.glow-link {
+  color: #e5d9ff;
+  font-weight: 500;
+  text-decoration: underline;
+  text-shadow: 0 0 6px #b366ff, 0 0 12px #8000ff;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.glow-link:hover {
+  color: #ffffff;
+  text-shadow:
+    0 0 10px #cc80ff,
+    0 0 20px #9933ff,
+    0 0 30px #8000ff;
+}
+
+.hero-video {
+  max-width: 820px;
+  margin: 2rem auto 0 auto;
+  padding: .9rem 1.1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(155, 80, 255, 0.8);
+}
+</style>
+
+
+
+<section id="systems" class="section">
+  <div class="container panel">
+    <h2 class="neon">Server Systems & Features</h2>
+    <div class="sep"></div>
+    <h3 class="glow-title">Progression & Rates</h3>
+    <ul>
+      <li>Base XP reduced by <b>50%</b> server‑wide; Quest XP & Luminance reduced by <b>20%</b>.</li>
+      <li>Level cap: <b>275</b>; Force Materialize: <b>6s</b> on login/portal.</li>
+    </ul>
+    <h3 class="glow-title">Economy & Casino</h3>
+    <ul><li><b>Uber-Stakes Gambling Gems</b>: High-risk currency for the PvP-only Vault.</li>
+      <li><b>The Pit Boss</b>: Trades Uber-Stakes Gems for a roll at top-tier rewards (PvP-only Den).</li>
+      <li><b>The Forge of Souls</b>: 50/50 wager of XP or Luminance — double on win, lose the offering on loss.</li>
+      <li><b>Danky the Terrible & other gamblers</b>: Coin flip for 5 MMDs to try to double; additional games available.</li>
+      <li><b>Wheel of Fortune</b>: Daily spin (20-hour timer) for level 150+.</li>
+      <li><b>The Jester</b>: Non-PK trade — 1 Uber-Stakes Gem → 2 Nexus Tokens.</li>
+      <li><b>Forgemaster of Souls</b>: 50/50 double‑or‑lose (XP 100M/500M/1B or LUM 50k/100k/150k). <b>12h cooldown</b>.</li></ul>
+    <h3 class="glow-title">PK / Non‑PK</h3>
+    <ul>
+      <li>Toggle PK with <b>Bael’Zharon</b> (30‑min)</li>
+	  <li><b>Asheron</b> (60 Nexus Tokens) or <b>Emissary</b> (free, every 3 days).</li>
+    </ul>
+  <h3 class="glow-title">Unique Gameplay Systems</h3>
+    <h4>Arena System</h4>
+    <ul>
+      <li>Event Types: 1v1, 2v2, Free‑For‑All (FFA), and Group matches</li>
+      <li>Smart Matchmaking: respects level tiers; prioritizes existing fellowships for team events</li>
+      <li>ELO Ranking: server‑wide rating based on match performance</li>
+      <li>Observer Mode: watch live matches safely and invisibly</li>
+      <li>Rotating Maps: fight in Icebox, The Drowned Pit, Gladiator’s Arena, and more</li>
+    </ul>
+
+    <h4>Dynamic Invasions</h4>
+    <ul>
+      <li>World Events: killing mobs may trigger massive invasions in one of 17 towns</li>
+      <li>Mini‑Bosses: powerful bosses spawn that require players to band together</li>
+      <li>Valuable Tokens: bosses drop limited tokens redeemable with the <b>Clerk of Nexus Deeds</b> (Simiran)</li>
+    </ul>
+
+    <h4>Town Control</h4>
+    <ul>
+      <li>Allegiance‑based captures with <b>zerg limit</b> caps (max 5 allegiances)</li>
+      <li>Rewards: controlled towns yield a steady income of Nexus Tokens for the allegiance</li>
+      <li>No Vendors: town‑control vendors removed to balance the economy</li>
+    </ul>
+
+    <div class="sep"></div>
+    <h3 class="glow-title">Progression System</h3>
+    <ul>
+      <li>XP Rate: XP reduced by <b>50%</b> for slower, meaningful progression</li>
+      <li>Percentage‑Based Rewards: most quests scale XP rewards by level</li>
+      <li>Max Level: <b>275</b></li>
+      <li>Starter Bonuses: <b>96‑slot backpack</b> and <b>Throne of Destiny Pre‑Order</b> gem on creation</li>
+      <li>Retail Feel: retail casting behavior; improved melee and archery</li>
+      <li>Force Materialization: <b>6s</b> on login/portal</li>
+      <li>Vitae: max penalty capped at <b>20%</b></li>
+      <li>PvP Adjustments: cleaving disabled; rare gems cannot be used in PvP; consumable chug rate reduced</li>
+      <li>Tinkering Lotto: randomized chances for enhanced results while tinkering</li>
+      <li>Account Policy: max <b>5 accounts per IP</b>; <b>15 characters</b> per account; VPNs disabled (exceptions possible)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="items" class="section">
+  <div class="container panel">
+    <h2 class="neon">Items & Vendors</h2>
+    <div class="sep"></div>
+
+    <h3 class="glow-title">Custom Items</h3>
+    <h4>Nexus Deathshards</h4>
+    <ul>
+      <li>A high‑risk, high‑reward currency item sold by <b>Threxil</b> and <b>Martine</b>, the only two remaining Master‑Mages in Dereth.</li>
+      <li>Use the infinite Master‑Mage gem given on spawn, or visit <b>Hopeslayer’s Temple</b> (PvP zone) to purchase more.</li>
+    </ul>
+
+    <h4>Legendary Keys</h4>
+    <ul>
+      <li>Now drop valuable <b>T8+</b> loot, making them highly sought after.</li>
+      <li>Keys can only be pulled in <b>Calfadar Village</b>.</li>
+    </ul>
+
+    <h4>Hundreds of Custom Items</h4>
+    <ul>
+      <li>Speak to the <b>Bound Arbiter</b> (Calfadar) to spend <b>Nexus Tokens</b> on a wide variety of rewards.</li>
+      <li>Numerous vendors across the world offer specialized gear and services.</li>
+    </ul>
+
+    <h4>The Eternal Stone</h4>
+    <ul>
+      <li>A quest‑earned relic that grants <b>infinite mana</b>. Tap into endless power, forever.</li>
+    </ul>
+
+    <div class="sep"></div>
+    <h3>Nexus Tokens</h3>
+    <ul>
+      <li>Spend Nexus Tokens at the <b>Bound Arbiter</b> in <b>Calfadar and many other locations</b>.</li>
+    </ul>
+  </div>
+</section>
+
+
+
+<section id="towns" class="section">
+  <div class="container panel">
+    <h2 class="neon">Towns & Key Hubs</h2>
+    <div class="sep"></div>
+
+    <h3 class="town-title">Simiran</h3>
+
+    <h4>Quests</h4>
+    <ul>
+      <li><b>Terry Thornberry</b> — kill 200 Pancake Golems for rewards</li>
+      <li><b>Chester Thornberry</b> — kill 200 Hallowed Shades for rewards</li>
+      <li><b>Aun Pallaton</b> (180+) — multiple Sanctum of Chaos quests</li>
+      <li><b>Eylsa Strathelar</b> (50+) — Archmage Investigation; rewards bludge-rend weapons</li>
+      <li><b>Lizard Hunter</b> — in Ugly Lizard Dungeon; kill 500 Ugly Lizards</li>
+    </ul>
+
+    <h4>Vendors & Services</h4>
+    <ul>
+      <li><b>Salvage Token</b> — buy salvage tokens for 20 MMDs (work 10 salvage from vendors behind)</li>
+      <li><b>Nexus Weeping</b> — weapons vendor</li>
+      <li><b>Clerk of Nexus Deeds</b> — turn in invasion tokens</li>
+      <li><b>Captain Fixer</b> — swap bugged legacy items</li>
+      <li><b>Maggie the Jackcat</b> — Lv8 buffs every 3 days with academy painting</li>
+      <li><b>Nexus Buffer</b> — 5 MMDs or 20 Nexus Tokens for Lv8 buffs</li>
+      <li><b>Asheron</b> — Non-PK for 40 Nexus Tokens</li>
+      <li><b>Emissary of Asheron</b> — free Non-PK (every 3 days)</li>
+      <li><b>Bael’Zharon</b> — toggle PK (30-min)</li>
+      <li><b>Laurana the Fletcher</b> — all arrowheads</li>
+      <li><b>John</b> — Luminance quests (“John Loop”)</li>
+      <li><b>Arcanum Broker</b> — buys almost anything for great prices</li>
+      <li><b>Marid & Monroe</b> — stipends</li>
+      <li><b>Doctor Kavorkian</b> — potions & kits</li>
+      <li><b>Agent of the Arcanum</b> — just outside city</li>
+      <li><b>Wedding Planner</b> — just outside city</li>
+      <li><b>All Professors of Magic</b> — level 1–7 spells for MMDs</li>
+      <li><b>Iaret</b> — summoning vendor</li>
+    </ul>
+
+    <h4>Dungeons & Hunts</h4>
+    <ul>
+      <li><b>XP Shrine Dungeons (PvP only)</b>: Sanctum of Greatness (20–49), Honor (49–69), Valor (70–100), Glory (100–120), Chaos (180+)</li>
+      <li>Pancake Golem Dungeon (20–100, PvP)</li>
+      <li>Vault of Inverted Light (1–100)</li>
+      <li>Ugly Lizard Dungeon (10–100)</li>
+      <li>Asheron’s Sanctum Hive (30+ & 50+, PvE)</li>
+      <li>Decimation Golems (70–150, PvP)</li>
+      <li>Ulgrim’s Invaded Island (70–150)</li>
+      <li>Practice Island — moving targets</li>
+      <li>Blackened Spawn Den (140–200; tuskers; T7 loot)</li>
+    </ul>
+
+    <h4>Portals</h4>
+    <ul>
+      <li>Hopeslayer’s Reach</li>
+      <li>Calfadar Village</li>
+      <li>Ravaged Islands</li>
+      <li>Nexus Gambling Den</li>
+    </ul>
+  
+    <div class="sep"></div>
+    
+    <div class="sep"></div>
+<h3 class="town-title">Calfadar</h3>
+<h4>Quests</h4>
+<ul>
+<li><b>Sky the Inspirational</b> (100+)</li>
+<li><b>Captain Stupid</b> (150+)</li>
+<li><b>Hallas the Longwinded</b> (150+) — Gives 100% XP of level (max 5B) + 28k Lum.</li>
+<li><b>Xavier Dabsworth</b> (150+)</li>
+<li><b>Wiccan Witch</b> (150+) — Gives 100% XP of level (max 5B).</li>
+<li><b>Stanley the Stomper</b> (180+)</li>
+</ul>
+<h4>Vendors & Services</h4>
+<ul>
+  <li><b>Sargren</b> — all luminance augmentation tokens (1 pyreal)</li>
+  <li><b>Halzar</b> — spec/unspec gems + mastery resets (1 pyreal)</li>
+  <li><b>Luminance Seers</b> — located near Sargren and Halzar</li>
+  <li><b>Chafulumisa</b> — from Asheron’s Castle</li>
+  <li><b>Geilla</b> — Nexus Shadow Armor (90+)</li>
+  <li><b>Bound Arbiter</b> — main vendor for Nexus Tokens</li>
+  <li><b>Crucible Golem</b> — Trade 20 Fractured Nexus Tokens → 5 Nexus Tokens.</li>
+  <li><b>Trainer of Specialized Magic</b> — certain level 8s</li>
+  <li><b>Xander the Great</b> — accepts XP relics</li>
+  <li><b>Bael’Zharon</b> — same as Simiran</li>
+</ul>
+
+    <h4>Dungeons & Locations</h4>
+<ul>
+  <li><b>Gorvax the Devourer</b> (Meat Vault key → Gorvax’s Vault)</li>
+  <li>Legendary chests</li>
+</ul>
+
+    <h4>Portals</h4>
+<ul>
+  <li>Hopeslayer’s Reach</li>
+  <li>Simiran</li>
+  <li>Ravaged Islands</li>
+  <li>Tou‑Tou</li>
+  <li>Nexus Gambling Den</li>
+</ul>
+
+    <div class="sep"></div>
+    <h3 class="town-title">Ravaged Islands</h3>
+    <h4>Quests</h4>
+    <ul>
+      <li><b>Wraith Hunter</b> (150+) — Gives 100% XP of level (max 5B).</li>
+      <li><b>Vermino 150+</b> — defeat Fenris the Alpha.</li>
+      <li><b>Trevis the Ruiner  150+</b> — collect Picker Fragments.</li>
+      <li><b>Bael’Zharon’s Acolyte  150+</b> — collect letters from mobs.</li>
+      <li><b>Eggburt  150+</b> — 50 Ravaged Teeth rewards.</li>
+      <li><b>Fatos the Lugian Slayer  150+</b> — 100 Big Lugians.</li>
+      <li><b>Snorebert  150+</b> — slay a penguin.</li>
+      <li><b>Oathliege Hunter  150+</b> — 100 Oathlieges.</li>
+      <li><b>Born the Tail Hunter  150+</b> — obtain Kurama’s tail.</li>
+      <li><b>George, the Thornbound Savage  150+</b> — 100 Mutated Tuskers.</li>
+      <li><b>Hells, the Hooded One Hunter 150+</b> — 50 Hooded Ones.</li>
+    </ul>
+    <h4>Portals</h4>
+<ul>
+  <li>Town Network</li>
+  <li>Calfadar</li>
+  <li>Simiran</li>
+  <li>Hintenfau</li>
+</ul>
+    <h4>Other</h4>
+    <ul><li>Vein of the Hopeslayer Shrine — accepts a special item for rewards.</li></ul>
+
+ <div class="sep"></div>
+<h3 class="town-title">Hopeslayer’s Reach</h3>
+<h4>Quests & NPCs</h4>
+<ul>
+  <li><b>Gaerlan the Archmage</b> (180+)</li>
+  <li><b>Igris the Nexus Knight</b> (180+)</li>
+  <li><b>Geraine, Warden of the Reach</b> (180+)</li>
+  <li><b>Threxil, the Mind Aperture</b> — sells Nexus Deathshards/other comps</li>
+  <li><b class="creator-name">Twisted Heat</b> — quest skips (skillpoints/luminance/aetheria)</li>
+  <li><b>Rookie</b> — trade Arena Tokens</li>
+  <li><b>Rookie’s Locker</b> — T8 loot</li>
+  <li><b>Baldur</b> (WIP) — Essences of Power → Nexus Tokens</li>
+  <li><b>Business Mite</b> — quest weapons for coins</li>
+  <li><b>Business Cow</b> — foolproof salvage for Imbue Swap Coins</li>
+  <li><b>Anti-Parazi</b></li>
+  <li><b>Lady Boy</b> (Arena)</li>
+  <li><b>Dread Og</b> (info)</li>
+</ul>
+
+<h4>Dungeons & Hunts</h4>
+<ul>
+  <li><b>Dark Fuin Halls</b> (180+)</li>
+  <li><b>Red Vaults</b> (180+)</li>
+  <li><b>Blood Pit</b> (150+)</li>
+</ul>
+
+<h4>Buffs</h4>
+<ul>
+  <li><b>Nexus Buffer Mage</b></li>
+  <li><b>Quintessence</b> — random Lv8 buffs</li>
+</ul>
+
+<h4>Portals</h4>
+<ul>
+  <li>Simiran</li>
+  <li>PvP Portal Temple (hub)</li>
+</ul>
+
+
+  
+    <div class="sep"></div>
+    <h3 class="town-title">Hintenfau - Coming Soon</h3>
+</div>
+</section>
+
+
+<section id="monsters" class="section">
+  <div class="container panel">
+    <h2 class="neon">Monsters</h2>
+    <input id="mon-q" class="search" placeholder="Search monsters (name, zone, drops, dungeon)" style="margin:.5rem 0 1rem 0; width:min(420px,100%)">
+    <div class='table-wrap'><table class='mono' id='mon-table'><thead><tr><th>Name</th><th>Zone</th><th>Level</th><th>XP</th><th>Lum</th><th>Tier</th><th>Dungeon</th><th>Drops</th><th>Notes</th></tr></thead>
+<tbody id='mon-body'><tr><td>Oathbrand Vanguard</td><td>Hopeslayer’s Reach</td><td>300</td><td>5,000,000</td><td>100</td><td>8+</td><td></td><td>Residuum of the Eldrytch Nexus (quest)</td><td>Powerful Gearknights infused with the power of Asheron</td></tr><tr><td>Ravener of Purity</td><td>Hopeslayer’s Reach</td><td>425</td><td>5,000,000</td><td>100</td><td>8+</td><td></td><td>3 Oathbrand of Purity (quest)</td><td>Once Undead now Human; 2H boss; devastating damage</td></tr><tr><td>Warden of Asheron</td><td>Hopeslayer’s Reach</td><td>220</td><td>1,250,000</td><td>50</td><td>8+</td><td></td><td>Nexus Tokens</td><td>Undead loyal to Asheron; guard the Raveners of Purity</td></tr><tr><td>Drudge Fanatic</td><td>Hopeslayer’s Reach</td><td>300</td><td>2,500,000</td><td>100</td><td>8+</td><td></td><td>—</td><td>Mutated Drudges; large health pool</td></tr><tr><td>Shi No Kikai</td><td>Hopeslayer’s Reach</td><td>666</td><td>10,000,000</td><td>50</td><td>8+ (extended)</td><td></td><td>—</td><td>Free agents; dangerous spells; hard to kill</td></tr><tr><td>Muerte Futura</td><td>Hopeslayer’s Reach</td><td>666</td><td>5,000,000</td><td>75</td><td>8+ (extended)</td><td></td><td>Bone Fragment (Hintenfau quest)</td><td>Undead assassins using unorthodox spells</td></tr><tr><td>Calcifer</td><td>Hopeslayer’s Reach</td><td>666</td><td>5,000,000</td><td>100</td><td>8+ (extended)</td><td></td><td>Hollow Bone (Hintenfau quest)</td><td>Skeleton necromancers; dispels and debuffs</td></tr><tr><td>Blood Olthoi</td><td>Hopeslayer’s Reach</td><td>160</td><td>1,900,000</td><td>75</td><td>8</td><td>The Blood Pit</td><td>—</td><td>Bright red, mutated by the Hopeslayer</td></tr><tr><td>Xektik the Spined</td><td>Hopeslayer’s Reach</td><td>160</td><td>1,500,000</td><td>—</td><td>7</td><td>The Blood Pit</td><td>Bloodspike Pincer</td><td>Mutated Blood Olthoi; collect pincer</td></tr><tr><td>Corrupted Fuin</td><td>Hopeslayer’s Reach</td><td>400</td><td>1,500,000</td><td>75</td><td>8</td><td>Dark Fuin Halls</td><td>Nexus Tokens</td><td>Empowered by Gaerlan; deadlier than before</td></tr><tr><td>Bloodspawn Krivox</td><td>Hopeslayer’s Reach</td><td>220</td><td>3,000,000</td><td>75</td><td>8</td><td>The Blood Pit</td><td>Nexus Tokens, Uber‑Stakes Gems</td><td>Powerful Harbingers that ruin everything</td></tr><tr><td>Krivox The Hollow</td><td>Hopeslayer’s Reach</td><td>300</td><td>2,000,000</td><td>200</td><td>8+</td><td>The Blood Pit</td><td>Nexus Tokens, 2 Uber‑Stakes Gems</td><td>Boss with unknown powers; avoid at all costs</td></tr><tr><td>Venom Tusker</td><td>Calfadar</td><td>185</td><td>1,500,000</td><td>75</td><td>8+</td><td>Venom Tusker Den (PvP)</td><td>Nexus Tokens, Uber‑Stakes Gem</td><td>Viral infected tuskers; hollow acid damage</td></tr><tr><td>Gorvax The Devourer</td><td>Calfadar</td><td>185</td><td>5,000</td><td>0</td><td>0</td><td>Gorvax the Devourer</td><td>Gorvax&#x27;s Meat Key</td><td>Weak bloated glutton; drops key for Meat Vault</td></tr><tr><td>Pancake Golem</td><td>Simiran</td><td>25</td><td>50,000</td><td>0</td><td>3</td><td>Pancake Golems</td><td>—</td><td>Buttery golem oozing syrup</td></tr><tr><td>Hallowed Shade</td><td>Simiran</td><td>25</td><td>30,000</td><td>0</td><td>3</td><td>Vault of Inverted Light / Nexus Shadow Armor</td><td>—</td><td>A weak shadow</td></tr><tr><td>Cave Penguin</td><td>Simiran</td><td>115</td><td>50,000</td><td>0</td><td>6</td><td>Vault of Inverted Light</td><td>—</td><td>Cuddly murderer inside the Vault</td></tr><tr><td>Ugly Lizard</td><td>Simiran</td><td>40</td><td>22,000</td><td>0</td><td>5</td><td>Ugly Lizard Dungeon</td><td>—</td><td>Extremely ugly invader</td></tr><tr><td>Trophy Keeper of Greatness</td><td>Simiran</td><td>40</td><td>100,000</td><td>0</td><td>5</td><td>Sanctum of Greatness</td><td>—</td><td>Guardian of Sanctum of Greatness</td></tr><tr><td>Trophy Keeper of Honor</td><td>Simiran</td><td>105</td><td>120,000</td><td>0</td><td>5</td><td>Sanctum of Honor</td><td>—</td><td>Guardian of Sanctum of Honor</td></tr><tr><td>Trophy Keeper of Valor</td><td>Simiran</td><td>115</td><td>150,000</td><td>0</td><td>5</td><td>Sanctum of Valor</td><td>—</td><td>Guardian of Sanctum of Valor</td></tr><tr><td>Trophy Keeper of Glory</td><td>Simiran</td><td>160</td><td>250,000</td><td>0</td><td>6</td><td>Sanctum of Glory</td><td>MMD / Nexus Tokens (small chance)</td><td>Guardian of Sanctum of Glory</td></tr><tr><td>Mutated Tusker</td><td>Simiran / Ravaged</td><td>320</td><td>1,750,000</td><td>0</td><td>7++</td><td>Blackened Spawn Den / Ravaged Island</td><td>MMD, Nexus Tokens, Ravaged Tooth</td><td>Disgusting infected Tusker</td></tr><tr><td>Decimation Golem</td><td>Simiran</td><td>135</td><td>1,300,000</td><td>0</td><td>7</td><td>Decimation Golems / Abandoned Mines</td><td>Nexus Token, Pyreal Sliver, Diamond Powder</td><td>Empyrean golem with sword mastery</td></tr><tr><td>Island Golem</td><td>Ulgrim&#x27;s Invaded Island</td><td>135</td><td>1,000,000</td><td>0</td><td>7</td><td>Ulgrim&#x27;s Invaded Island</td><td>Nexus Token, Pyreal Sliver, Diamond Powder</td><td>Invading golem stealing resources</td></tr><tr><td>Follower of Threxil</td><td>Simiran</td><td>420</td><td>4,000,000</td><td>100</td><td>8+</td><td>Sanctum of Chaos / Eylsa&#x27;s Favor</td><td>Threxil‑aligned Virindi Mask</td><td>Fanatic of Virindi Threxil</td></tr><tr><td>Emissary of Bael&#x27;Zharon</td><td>Ravaged Island</td><td>220</td><td>1,200,000</td><td>60</td><td>7</td><td>Ravaged Island</td><td>Letter from Bael&#x27;Zharon, Nexus Token</td><td>True believer in Bael&#x27;Zharon</td></tr><tr><td>Bael&#x27;Zharon Soldier</td><td>Ravaged Island</td><td>220</td><td>1,100,000</td><td>63</td><td>8</td><td>Ravaged Island</td><td>Nexus Token</td><td>Skeleton protector of cultists</td></tr><tr><td>Cultist of Bael&#x27;Zharon</td><td>Ravaged Island</td><td>220</td><td>2,000,000</td><td>200</td><td>8</td><td>Ravaged Island</td><td>Nexus Token, MMD, Dark Power Fragment</td><td>Holder of Dark Fuin magic</td></tr><tr><td>Picker Golem</td><td>Ravaged Island</td><td>220</td><td>5,000,000</td><td>150</td><td>8+</td><td>Ravaged Island</td><td>Nexus Token, Ravaged Tooth, Picker Fragment</td><td>Massive abomination; devastating blows</td></tr><tr><td>Oathliege</td><td>Ravaged Island</td><td>460</td><td>5,000,000</td><td>310</td><td>8+</td><td>Ravaged Island</td><td>Ravaged Tooth</td><td>Human cultist of the Hopeslayer</td></tr><tr><td>Massive Enraged Penguin</td><td>Ravaged Island</td><td>160</td><td>7,500,000</td><td>—</td><td>8</td><td>Ravaged Island</td><td>Ravaged Tooth, Penguin Beak</td><td>Bothersome penguin</td></tr><tr><td>Hooded One</td><td>Ravaged Island</td><td>200</td><td>1,500,000</td><td>40</td><td>8</td><td>Ravaged Island</td><td>Nexus Token, Ravaged Tooth</td><td>Ancient Virindi; possibly as old as Dereth</td></tr><tr><td>Big Lugian</td><td>Ravaged Island</td><td>185</td><td>1,200,000</td><td>—</td><td>8</td><td>Ravaged Island</td><td>Nexus Token, Ravaged Tooth</td><td>Elder miner; incredibly strong</td></tr><tr><td>Kurama</td><td>Ravaged Island</td><td>180</td><td>1,000</td><td>—</td><td>2</td><td>Ravaged Island</td><td>Kurama&#x27;s Tail</td><td>Invading ursuin; feasts on humanoids</td></tr><tr><td>Ravaged Drudge</td><td>Ravaged Island</td><td>160</td><td>1,000,000</td><td>—</td><td>5</td><td>Ravaged Island</td><td>—</td><td>Wicked drudge; violent behavior</td></tr><tr><td>Venom Tusker</td><td>Ravaged Island</td><td>185</td><td>1,500,000</td><td>75</td><td>8+</td><td>Ravaged Island / Venom Tusker Den</td><td>Nexus Tokens, Uber‑Stakes Gem</td><td>Viral infected tusker</td></tr></tbody></table></div>
+  </div>
+</section>
+
+
+<section id="quests" class="section">
+  <div class="container panel">
+    <h2 class="neon">Quests & Rewards</h2>
+    <input id="quest-q" class="search" placeholder="Search quests, rewards, or zones (e.g., Nexus Tokens, Calfadar)" style="margin:.5rem 0 1rem 0; width:min(420px,100%)">
+    <div id="quest-cards">
+      
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Captain Stupid</h3><span class="pill">Calfadar</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 150+ • Lum: 55,000 • XP: 50% of your Level Max 5,000,000,000 • Items: 3 Uber‑Stakes Gambling Gems, 20 Nexus Tokens, Nexus Reward Chest</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Chester Thornberry</h3><span class="pill">Simiran</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 1+ • Lum: — • XP: 40,000,000 • Items: 10 Nexus Tokens</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Terry Thornberry</h3><span class="pill">Simiran</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 1+ • Lum: — • XP: 40,000,000 • Items: 10 Nexus Tokens</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Aun Pallaton</h3><span class="pill">Simiran</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 180+ • Lum: — • XP: 2,000,000,000 IF ALL • Items: 10 Trade Notes (250k), 20 Uber‑Stakes Gems, 40 Nexus Tokens, 2 Nexus Reward Chests</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Born the Tail Hunter</h3><span class="pill">Ravaged Islands</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 150+ • Lum: — • XP: 60% of your Level (max 950,000,000) • Items: 8 Nexus Tokens</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Eggburt</h3><span class="pill">Ravaged Islands</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 150+ • Lum: — • XP: 15,000,000 • Items: Uber‑Stakes Gem</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Snorebert</h3><span class="pill">Ravaged Islands</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 150+ • Lum: — • XP: 45% of your Level (max 950,000,000) • Items: 5 Nexus Tokens</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Wiccan Witch</h3><span class="pill">Calfadar</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 150+ • Lum: 50,000 • XP: 100% (max 5,000,000,000) • Items: 3 Uber‑Stakes Gems, 10 Nexus Tokens</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Xavier Dabsworth</h3><span class="pill">Calfadar</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 125+ • Lum: 50,000 • XP: 45% of your Level (max 5,000,000,000) • Items: 3 Uber‑Stakes Gems, 10 Nexus Tokens</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Hallas the Longwinded</h3><span class="pill">Calfadar</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 150+ • Lum: 60,000 • XP: 100% (max 5,000,000,000) • Items: 20 Nexus Tokens, 2 Nexus Reward Chests</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Sky the Inspirational</h3><span class="pill">Calfadar</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 100+ • Lum: 45,000 • XP: 100% (max 5,000,000,000) • Items: 3 Uber‑Stakes Gems, 5 Nexus Tokens</p></div>
+        </article>
+        
+
+        <article class="quest-card">
+          <header class="card-h">
+            <h3>Wraith Hunter</h3><span class="pill">Ravaged Islands</span>
+          </header>
+          <div class="card-b"><p>Quest: Level 150+ • Lum: — • XP: 100% of your Level (max 5,000,000,000) • Items: 10 Uber‑Stakes Gems, 20 Nexus Tokens, Nexus Reward Chest</p></div>
+        </article>
+        
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="creators" class="section">
+  <div class="container panel">
+    <h2 class="neon">Content Creators</h2>
+    <ul>
+      <li><b class="creator-name">Captain</b> — Admin, Server Owner, Architect</li>
+      <li><b class="creator-name">Quinton</b> — Lead Content Creator</li>
+      <li><b class="creator-name">Twisted Heat</b> — quality quest chains.</li>
+      <li><b class="creator-name">Lethal</b> — comedic quests and extras.</li>
+      <li><b class="creator-name">Dread Privateer</b> — Hintenfau island & other content.</li>
+      <li><b class="creator-name">Special Thanks</b> — everyone who ideates, tests, and reports bugs.</li>
+    </ul>
+  </div>
+</section>
+
+
+<section id="rules" class="section">
+  <div class="container panel">
+    <h2 class="neon">Nexus Server Rules & Conduct Policy</h2>
+    <p>Welcome to Nexus, a custom White Server and Red Server experience. Each server path offers unique custom content. For more details, please refer to the promotional video in the announcements channel.</p>
+    <p>Any serious inquiries should be sent through the #support-tickets channel where a ticket will be generated and sent to the Nexus Admin Team.</p>
+    <div class="sep"></div>
+
+    <h3 class="glow-title">Limits & Enforcement</h3>
+    <ul>
+      <li><b>IP Limit:</b> A maximum of <b>5 accounts</b> per IP address logged in at one time. VPNs or other methods to bypass this limit are prohibited. Exceptions may be granted under specific circumstances.</li>
+      <li><b>Character Limit:</b> Up to <b>15 characters</b> per account.</li>
+      <li><b>Enforcement:</b> All penalties are time-limited and subject to administrative review. <b class="creator-name">Captain</b> has final authority.</li>
+    </ul>
+
+    <h3 class="glow-title">Conduct Violations</h3>
+    <p>The following actions are prohibited and will result in disciplinary measures:</p>
+    <ul>
+      <li>Use of PvP macros</li>
+      <li>Exploiting metas in custom content areas or PvP dungeons</li>
+      <li>Excessive harassment or personal attacks</li>
+      <li>Use of racial slurs</li>
+      <li>Deliberately inflammatory or disruptive behavior as judged by staff</li>
+    </ul>
+
+    <h3 class="glow-title">Exploitation & Cheating</h3>
+    <p>Exploitation of any kind may result in immediate action, bypassing the strike system entirely. This includes but is not limited to the following:</p>
+    <ul>
+      <li>Abusing quests, items, or starting zones for exploitative gain. If you are unsure, report it to staff.</li>
+      <li>Using VPNs or other methods to bypass account limits.</li>
+      <li>Utilizing metas in PvP zones, the Colosseum, or Gauntlet. These metas overload the server and are not permitted. Breaking this rule will result in severe punishment.</li>
+      <li>Exploiting the PvE/PvP switching system.</li>
+      <li>Using third-party applications or plugins to cheat or manipulate the client. This includes Blink and Picker. Alpha anti-cheat is active and detection is ongoing.</li>
+      <li><i>Note:</i> Tools such as War Detect and plugin suites like Defiance or FOG are not policed.</li>
+    </ul>
+
+    <h3 class="glow-title">PvP Zone Clarification</h3>
+    <p>No automation may be used when recalling into PvP areas. All entries into PvP areas must be performed manually.</p>
+    <p>Examples:</p>
+    <ul>
+      <li>Player A detects Player B and recalls using automation software – this is a rule break.</li>
+      <li>Player A detects Player B and logs off manually – this is acceptable.</li>
+      <li>Player A logs on PK and automatically recalls into a PvP zone – this is a rule break.</li>
+      <li>Player A logs on PK, manually recalls back into a PvP zone, and sets up macros – this is acceptable.</li>
+    </ul>
+    <p>Do not attempt to bypass systems. If you are AFK in these zones and log on PK, you must manually return. Automation to re-enter or set up macros is prohibited.</p>
+
+    <h3 class="glow-title">Harassment Policy</h3>
+    <p>Harassment of other players or staff, either in-game or on Discord, will not be tolerated. This includes verbal abuse or targeted behavior. All cases will be reviewed individually.</p>
+    <p>Accusations of cheating must be sent directly to staff with proof. Public accusations without evidence are prohibited. Repeated false accusations will be treated as harassment.</p>
+    <p>Nepotism claims or insinuations will not be tolerated. If you believe wrongdoing has occurred, contact Captain or another staff member directly. Failure to follow this rule may result in account termination.</p>
+
+    <h3 class="glow-title">Disciplinary Progression</h3>
+    <ol>
+      <li><i>1st Offense:</i> Verbal or written warning</li>
+      <li><i>2nd Offense:</i> 24-hour mute</li>
+      <li><i>3rd Offense:</i> 24-hour ban</li>
+      <li><i>4th Offense:</i> 1-week ban</li>
+    </ol>
+    <p>Repeat offenses may trigger a Nexus Admin Team vote. Serious cases (illegal activity or disclosure of real-life information) are handled on a case-by-case basis.</p>
+
+    <h3 class="glow-title">Impersonation Rule</h3>
+    <p>Direct impersonation of active or well-known players in the community is prohibited. Stealing names or using deceptive variations is not allowed. This does not apply to old monarch names, which are fair game. Use common sense.</p>
+
+    <h3 class="glow-title">Account Sharing Disclaimer</h3>
+    <p>Sharing your account with other players is strongly discouraged. You assume full responsibility for any consequences. The Nexus Admin Team will not mediate disputes, resolve item loss, or perform rollbacks related to shared accounts.</p>
+
+    <h3 class="glow-title">Final Note</h3>
+    <p>Everyone should be here to have fun. Troublemakers will be dealt with, no exceptions. The rules apply equally to all players. Captain is an active administrator and while bans are never the first choice, do not assume you are not being watched. That would be your first mistake.</p>
+  </div>
+</section>
+
+
+<footer class="container">
+  <div class="sep"></div>
+  <small>© Nexus — Asheron's Call Wiki — Created by Captain . Links: <a href="https://discord.gg/zeN8hYuytE">Discord</a> · <a href="https://asheron.fandom.com/wiki/Home">Official Fandom Wiki</a></small>
+</footer>
+
+<script>
+(function(){
+  const qq = document.getElementById('quest-q');
+  if(qq){
+    qq.addEventListener('input', function(){
+      const term = this.value.toLowerCase();
+      document.querySelectorAll('#quest-cards .quest-card').forEach(function(card){
+        card.style.display = card.textContent.toLowerCase().includes(term) ? '' : 'none';
+      });
+    });
+  }
+  const mq = document.getElementById('mon-q');
+  if(mq){
+    mq.addEventListener('input', function(){
+      const term = this.value.toLowerCase();
+      document.querySelectorAll('#mon-body tr').forEach(function(tr){
+        tr.style.display = tr.textContent.toLowerCase().includes(term) ? '' : 'none';
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
